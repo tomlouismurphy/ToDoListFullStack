@@ -5,8 +5,8 @@ CREATE DATABASE tasklist;
 CREATE TABLE tasks (
 	id SERIAL PRIMARY KEY,
 	task VARCHAR(50),
-	taskDescription VARCHAR(250),
+	taskdescription VARCHAR(250),
 	manager VARCHAR(100),
 	deadline TIMESTAMP,
-	hoursLeftToComplete FLOAT(4)
+	hourslefttocomplete FLOAT(4)
 );

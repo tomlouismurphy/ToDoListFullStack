@@ -8,10 +8,10 @@ class TaskController < ApplicationController
 	post '/' do
 		@task = Task.new
 		@task.task = params[:task]
-		@task.taskDescription = params[:taskDescription]
+		@task.taskdescription = params[:taskdescription]
 		@task.manager = params[:manager]
 		@task.deadline = params[:deadline]
-		@task.hoursLeftToComplete = params[:HoursLeftToComplete]
+		@task.hourslefttocomplete = params[:hourslefttocomplete]
 		@task.save
 		'saved'
 	end
@@ -19,10 +19,10 @@ class TaskController < ApplicationController
 	put '/:id' do
 		@task = Task.find_by(id: params[:id])
 		@task.task = params[:task]
-		@task.taskDescription = params[:taskDescription]
+		@task.taskdescription = params[:taskdescription]
 		@task.manager = params[:manager]
 		@task.deadline = params[:deadline]
-		@task.hoursLeftToComplete = params[:HoursLeftToComplete]
+		@task.hourslefttocomplete = params[:hourslefttocomplete]
 		@task.save
 		'saved'
 	end
