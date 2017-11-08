@@ -2,10 +2,10 @@ require 'sinatra/base'
 
 require './controllers/ApplicationController'
 require './controllers/HomeController'
-require './controllers/ItemsController'
+require './controllers/TasksController'
 
-require 'models/Item'
+require './models/Task'
 
 map ('/') {run ApplicationController}
 map ('/') {run HomeController}
-map ('/') {run ItemController}
+map ('/') {run TaskController}
