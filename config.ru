@@ -7,5 +7,5 @@ require './controllers/TasksController'
 require './models/Task'
 
 map ('/') {run ApplicationController}
-map ('/') {run HomeController}
-map ('/') {run TaskController}
+map ('/home') {run HomeController}
+map ('/tasks') {run TaskController}
