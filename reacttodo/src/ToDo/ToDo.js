@@ -27,8 +27,10 @@ export class ToDo extends Component {
 	componentWillReceiveProps(nextprops) {
 		const obj = JSON.parse(nextprops.tasks);
 		const state = this.state;
-		for (let i = 0; i < obj.length; i++){
-			state.tasks.push(obj[i]);
+		if (this.state.tasks.length === 0){
+			for (let i = 0; i < obj.length; i++){
+				state.tasks.push(obj[i]);
+			}
 		}
 		this.setState(state);
 		console.log(this.state.tasks);
@@ -38,7 +40,7 @@ export class ToDo extends Component {
 			<div>
 				<Tasks tasks={this.state.tasks} taskMoreDetail={this.taskMoreDetail}/>
 				<Details tasks={this.state.tasks} selectedTask={this.state.selectedTask}/>
-				<Create/>
+				<Create ajaxGet={this.props.ajaxGet}/>
 			</div>
 		)
 	}

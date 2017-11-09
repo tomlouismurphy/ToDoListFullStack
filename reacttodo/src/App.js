@@ -9,7 +9,8 @@ class App extends Component {
       tasks: []
     }
   }
-  componentDidMount() {
+  ajaxGet = () => {
+    console.log('get request firing');
     const taskData = new XMLHttpRequest();
     taskData.open('GET', 'http://localhost:9292/tasks');
     taskData.send(null);
@@ -19,17 +20,19 @@ class App extends Component {
           const state = this.state;
           state.tasks = taskData.responseText;
           this.setState(state);
-          console.log(this.state);
       } else {
         console.log('Error: ' + taskData.status);
       }
     }
   }
+  componentDidMount() {
+    this.ajaxGet();
+  }
   render() {
     return (
       <div>
         <h3>To-Do List</h3>
-        <ToDo tasks={this.state.tasks}/>
+        <ToDo tasks={this.state.tasks} ajaxGet={this.ajaxGet}/>
       </div>
     );
   }

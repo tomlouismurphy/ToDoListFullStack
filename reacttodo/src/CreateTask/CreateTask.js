@@ -41,6 +41,7 @@ export class Create extends Component {
 	      }
 	    }
 	    xhr.send(params);
+	    setTimeout(function() {this.props.ajaxGet(); }, 1000);
 	}
 	render() {
 		return(

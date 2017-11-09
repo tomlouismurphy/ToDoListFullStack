@@ -24,17 +24,21 @@ export class Details extends Component {
 		console.log(this.state.tasks);
 	}
 	render() {
-		console.log(typeof(this.state.selectedTask));
-		console.log((typeof(this.state.selectedTask) === 'object'))
 		return (
 			<div>
 				{(typeof(this.state.selectedTask) === 'object') ? 
 					<div>
-						<h3>{this.state.selectedTask.task}</h3>
-							<br/>
-							<p>More details: {this.state.selectedTask.taskdescription}</p>
-							<br/>
-							<p>This task is assigned to {this.state.selectedTask.manager}. It will take {this.state.selectedTask.hourslefttocomplete} hours to finish and must be finished by {this.state.selectedTask.deadline}.</p>
+						<div>
+							<h3>{this.state.selectedTask.task}</h3>
+								<br/>
+								<p>More details: {this.state.selectedTask.taskdescription}</p>
+								<br/>
+								<p>This task is assigned to {this.state.selectedTask.manager}. It will take {this.state.selectedTask.hourslefttocomplete} hours to finish and must be finished by {this.state.selectedTask.deadline}.</p>
+						</div>
+						<div>
+							<button>Edit Task</button>
+							<button>Delete Task</button>
+						</div>
 					</div>
 				:
 					<p>No task selected.</p>

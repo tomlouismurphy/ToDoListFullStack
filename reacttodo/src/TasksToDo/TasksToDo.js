@@ -18,12 +18,9 @@ export class Tasks extends Component {
 			}
 		}
 		this.setState(state);
-		console.log(this.state.tasks);
 	}
 	render() {
 		if (this.state.tasks.length > 0){
-			console.log(this.state.tasks);
-			console.log(this.props.taskMoreDetail);
 			const list = this.state.tasks.map((item, i) => {
 				return <li key={i} onClick={this.props.taskMoreDetail}>{item}</li>
 			})
