@@ -11,3 +11,10 @@ $.ajax({
 		console.log(err);
 	}
 })
+
+fetch('http://localhost:9292/tasks',{
+	method: 'delete'
+})
+.then(() => {
+	console.log('something');
+})
