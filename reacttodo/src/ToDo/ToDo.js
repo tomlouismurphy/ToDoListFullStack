@@ -8,28 +8,30 @@ export class ToDo extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			tasks: this.props.tasks,
+			tasks: [],
 			selectedTask: ''
 		}
 	}
 	taskMoreDetail = (e) => {
-		console.log(e.target.innerText);
-		console.log(this.state.tasks);
 		const state = this.state;
 		for (let i = 0; i < this.state.tasks.length; i++){
 			if (e.target.innerText === this.state.tasks[i].task){
 				state.selectedTask = this.state.tasks[i];
 				console.log(state.selectedTask);
+				this.setState(state);
 			} else {
 				console.log('fail');
 			}
 		}
-		this.setState(state);
 	}
 	componentWillReceiveProps(nextprops) {
+		const obj = JSON.parse(nextprops.tasks);
 		const state = this.state;
-		state.tasks = nextprops.tasks;
+		for (let i = 0; i < obj.length; i++){
+			state.tasks.push(obj[i]);
+		}
 		this.setState(state);
+		console.log(this.state.tasks);
 	}
 	render() {
 		return(

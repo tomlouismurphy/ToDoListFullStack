@@ -8,14 +8,12 @@ class TaskController < ApplicationController
 
 	post '/' do
 		response['Access-Control-Allow-Origin'] = '*'
-		payload = params 
-    	payload = JSON.parse(request.body.read).symbolize_keys
 		@task = Task.new
-		@task.task = payload[:task]
-		@task.taskdescription = payload[:taskdescription]
-		@task.manager = payload[:manager]
-		@task.deadline = payload[:deadline]
-		@task.hourslefttocomplete = payload[:hourslefttocomplete]
+		@task.task = params[:task]
+		@task.taskdescription = params[:taskdescription]
+		@task.manager = params[:manager]
+		@task.deadline = params[:deadline]
+		@task.hourslefttocomplete = params[:hourslefttocomplete]
 		@task.save
 		'saved'
 	end

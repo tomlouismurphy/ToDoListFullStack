@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 import './TasksToDo.css';
 
 export class Tasks extends Component {
-	constructor(props){
-		super(props);
+	constructor(){
+		super();
 		this.state = {
 			tasks: [],
 			selectedTask: ''
 		}
 	}
 	componentWillReceiveProps(nextprops) {
-		const obj = JSON.parse(nextprops.tasks);
+		const obj = nextprops.tasks;
 		const state = this.state;
-		for (let i = 0; i < obj.length; i++){
-			state.tasks.push(obj[i].task);
+		if (this.state.tasks.length === 0){
+			for (let i = 0; i < obj.length; i++){
+				state.tasks.push(obj[i].task);
+			}
 		}
 		this.setState(state);
 		console.log(this.state.tasks);
@@ -23,11 +25,13 @@ export class Tasks extends Component {
 			console.log(this.state.tasks);
 			console.log(this.props.taskMoreDetail);
 			const list = this.state.tasks.map((item, i) => {
-				return <div key={i} onClick={this.props.taskMoreDetail}>{item}</div>
+				return <li key={i} onClick={this.props.taskMoreDetail}>{item}</li>
 			})
 			return(
 				<div>
-					{list}
+					<ul>
+						{list}
+					</ul>
 				</div>
 			)
 		} else {
