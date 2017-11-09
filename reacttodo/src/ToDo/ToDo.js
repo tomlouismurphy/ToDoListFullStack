@@ -25,7 +25,7 @@ export class ToDo extends Component {
 		return(
 			<div>
 				<Tasks tasks={this.state.tasks}/>
-				<Details selectedTask={this.state.selectedTask}/>
+				<Details tasks={this.state.tasks} selectedTask={this.state.selectedTask}/>
 				<Create/>
 			</div>
 		)

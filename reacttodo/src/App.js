@@ -14,8 +14,12 @@ class App extends Component {
     taskData.open('GET', 'http://localhost:9292/tasks');
     taskData.send(null);
     taskData.onreadystatechange = () => {
-      if (taskData.status === 200) {
-          console.log(taskData);
+      if (taskData.status === 200 && taskData.readyState === 4) {
+          console.log(taskData.responseText);
+          const state = this.state;
+          state.tasks = taskData.responseText;
+          this.setState(state);
+          console.log(this.state);
       } else {
         console.log('Error: ' + taskData.status);
       }

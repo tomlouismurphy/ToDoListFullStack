@@ -13,10 +13,9 @@ export class Tasks extends Component {
 		const list = this.props.tasks.map((item, i) => {
 			return <div key={i}>{item.task}</div>
 		})
+		console.log(list);
 		return(
-			<div>
-				<p>All the tasks to complete.</p>
-			</div>
+			<p>hi</p>
 		)
 	}
 }
